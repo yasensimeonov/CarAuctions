@@ -1,10 +1,8 @@
-﻿namespace AuctionService.Entities
-{
-    public enum Status
-    {
-        Live,
-        Finished,
-        ReserveNotMet
-    }
+﻿namespace AuctionService.Entities;
 
+public enum Status
+{
+    Live,
+    Finished,
+    ReserveNotMet
 }
