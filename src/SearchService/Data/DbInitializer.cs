@@ -17,8 +17,7 @@ public class DbInitializer
             .Key(x => x.Color, KeyType.Text)
             .CreateAsync();
 
-        var count = await DB.CountAsync<Item>();
-
+        //var count = await DB.CountAsync<Item>();
         //if (count == 0) 
         //{
         //    Console.WriteLine("No data - will attempt to seed.");
