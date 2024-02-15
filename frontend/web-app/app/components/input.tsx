@@ -1,14 +1,21 @@
+import type { FieldValues, FieldPath } from "react-hook-form"
 import {useController, UseControllerProps} from "react-hook-form";
 import {Label, TextInput} from "flowbite-react";
 
-type Props = {
+type Props<
+    TFieldValues extends FieldValues,
+    TName extends FieldPath<TFieldValues>
+> = {
     label: string
     type?: string
     showLabel?: boolean
-} & UseControllerProps
+} & UseControllerProps<TFieldValues, TName>
 
-export default function Input(props: Props) {
-    const {fieldState, field} = useController({...props, defaultValue: ''})
+export default function Input<
+    TFieldValues extends FieldValues,
+    TName extends FieldPath<TFieldValues>
+>(props: Props<TFieldValues, TName>) {
+    const {fieldState, field} = useController({...props})
 
     return (
         <div className='mb-3'>
