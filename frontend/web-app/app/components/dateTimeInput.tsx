@@ -1,7 +1,7 @@
 import {FieldPath, FieldValues, useController, UseControllerProps} from "react-hook-form";
-import 'react-datepicker/dist/react-datepicker.css'
-import DatePicker, {ReactDatePickerProps} from "react-datepicker";
 import {Label} from "flowbite-react";
+import { DateTimePickerComponent, DateTimePickerModel } from '@syncfusion/ej2-react-calendars';
+import DatePicker from "react-datepicker";
 
 type Props<
     TFieldValues extends FieldValues,
@@ -10,15 +10,15 @@ type Props<
     label: string
     type?: string
     showLabel?: boolean
-} & UseControllerProps<TFieldValues, TName> & Partial<ReactDatePickerProps>
+} & UseControllerProps<TFieldValues, TName> & Partial<DateTimePickerModel>
 
-export default function DateInput<
+export default function DateTimeInput<
     TFieldValues extends FieldValues,
     TName extends FieldPath<TFieldValues>
 >(props: Props<TFieldValues, TName>) {
     const {fieldState, field} = useController({...props})
 
-    // const { showLabel, ...rest } = props;
+    const { showLabel, ...rest } = props;
 
     return (
         <div className='block'>
@@ -27,24 +27,25 @@ export default function DateInput<
                     <Label htmlFor={field.name} value={props.label} />
                 </div>
             )}
-            <DatePicker
-                {...props}
+            <DateTimePickerComponent
+                id='datetimepicker'
+                {...rest}
                 {...field}
-                onChange={value => field.onChange(value)}
-                // type={props.type || 'text'}
-                selected={field.value}
-                placeholderText={props.label}
+                onChange={(value: Date) => field.onChange(value)}
+                // onFocus={() => console.log('SyncFusionDateTimePicker', 'focused')}
+                value={field.value}
+                placeholder={props.label}
                 // color={errors?.model && 'failure'}
                 // color={fieldState.error ? 'failure' : !fieldState.isDirty ? '' : 'success'}
                 // helperText={errors.model?.message as string}
                 // helperText={fieldState.error?.message}
-                className={`
-                    rounded-lg w-[100%] flex flex-col
-                    ${fieldState.error 
-                        ? 'bg-red-50 border-red-500 text-red-900' 
-                        : (!fieldState.invalid && fieldState.isDirty) 
-                        ? 'bg-green-50 border-green-500 text-green-900' : ''}
-                `}
+                // className={`
+                //     ${fieldState.error
+                //     ? 'e-error'
+                //     : (!fieldState.invalid && fieldState.isDirty)
+                //         ? 'e-success' : ''}
+                // `}
+                // cssClass='border-color:#0057ff'
             />
             {fieldState.error && (
                 <div className='text-red-500 text-sm'>

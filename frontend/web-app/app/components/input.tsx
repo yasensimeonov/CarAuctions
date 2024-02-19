@@ -17,15 +17,17 @@ export default function Input<
 >(props: Props<TFieldValues, TName>) {
     const {fieldState, field} = useController({...props})
 
+    const { showLabel, ...rest } = props;
+
     return (
         <div className='mb-3'>
-            {props.showLabel && (
+            {showLabel && (
                 <div className='mb-2 block'>
                     <Label htmlFor={field.name} value={props.label} />
                 </div>
             )}
             <TextInput
-                {...props}
+                {...rest}
                 {...field}
                 type={props.type || 'text'}
                 placeholder={props.label}

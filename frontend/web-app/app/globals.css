@@ -1,7 +1,46 @@
+@import "../node_modules/@syncfusion/ej2-base/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/tailwind.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.react-datepicker-wrapper {
-    width: 100%;
+.e-input-group input.e-input,
+.e-input-group.e-control-wrapper input.e-input {
+    font-size: 20px;
+    height: 35px;
+    outline: 10px;
+    border: 10px;
 }
+
+/*.react-datepicker-wrapper {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.e-calendar-yasen.e-datetime-wrapper {*/
+/*    border: red;*/
+/*    height: 100px;*/
+/*    width: 50%;*/
+/*    outline: red 5px;*/
+/*}*/
+
+/*.e-calendar-yasen.e-datetime-wrapper .e-input-group-icon.e-date-icon,*/
+/*.e-calendar-yasen.e-datetime-wrapper .e-input-group-icon.e-time-icon {*/
+/*    font-size: 18px;*/
+/*    background-color: red;*/
+/*    color: black;*/
+/*    border: red;*/
+/*}*/
+
+/*.e-calendar-yasen.datetimepicker-control-section {*/
+/*    background: red;*/
+/*    max-width: 246px;*/
+/*    margin: 30px auto;*/
+/*    padding-top: 50px;*/
+/*    color: black;*/
+/*    border: red;*/
+/*}*/

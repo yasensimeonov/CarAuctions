@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@syncfusion/ej2-react-calendars": "^24.2.5",
     "date-fns": "^3.3.1",
     "flowbite-react": "^0.7.2",
     "next": "^14.1.0",
