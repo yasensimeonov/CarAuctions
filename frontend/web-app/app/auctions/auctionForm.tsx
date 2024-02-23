@@ -7,7 +7,6 @@ import {useEffect} from "react";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup";
 import {addDays, format} from "date-fns";
-import DateInput from "@/app/components/dateInput";
 import DateTimeInput from "@/app/components/dateTimeInput";
 
 const schema = yup.object({
@@ -35,7 +34,8 @@ export default function AuctionForm() {
     } = useForm({
         resolver: yupResolver(schema),
         defaultValues: {
-            make: '', model: '', color: '', year: 1995, mileage: 10000, imageUrl: '', reservePrice: 0,
+            make: '',
+            model: '', color: '', year: 1995, mileage: 10000, imageUrl: '', reservePrice: 0,
             // auctionEnd: format(addDays(new Date(), 1), 'yyyy-MM-dd')
             auctionEnd: addDays(new Date(), 1)
             // auctionEnd: undefined
@@ -59,14 +59,6 @@ export default function AuctionForm() {
                 // rules={{required: 'Make is required'}}
             />
 
-            {/*<div className='mb-3 block'>*/}
-            {/*    <TextInput*/}
-            {/*        {...register('model', {required: 'Model is required'})}s*/}
-            {/*        placeholder='Model'*/}
-            {/*        color={errors?.model && 'failure'}*/}
-            {/*        helperText={errors.model?.message as string}*/}
-            {/*    />*/}
-            {/*</div>*/}
             <Input label='Model' name='model' control={control} />
 
             <Input label='Color' name='color' control={control} />
@@ -80,6 +72,7 @@ export default function AuctionForm() {
 
             <div className='grid grid-cols-2 gap-3'>
                 <Input label='Reserve Price (enter 0 if no reserve)' showLabel name='reservePrice' control={control} type='number' />
+
                 {/*<Input label='Auction end date/time' name='auctionEnd' control={control} type='date' />*/}
                 {/*<DateInput*/}
                 {/*    label='Auction end date/time'*/}
@@ -90,6 +83,7 @@ export default function AuctionForm() {
                 {/*    dateFormat='dd MMMM yyyy h:mm a'*/}
                 {/*    showTimeSelect*/}
                 {/*/>*/}
+
                 <DateTimeInput
                     label='Auction end date/time'
                     placeholder='Select a date and time'
@@ -102,7 +96,7 @@ export default function AuctionForm() {
                 />
             </div>
 
-            <div className='flex justify-between'>
+            <div className='mt-3 flex justify-between'>
                 <Button outline color='gray'>Cancel</Button>
                 <Button
                     isProcessing={isSubmitting}

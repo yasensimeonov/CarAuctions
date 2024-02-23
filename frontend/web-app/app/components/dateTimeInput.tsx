@@ -1,7 +1,6 @@
 import {FieldPath, FieldValues, useController, UseControllerProps} from "react-hook-form";
 import {Label} from "flowbite-react";
 import { DateTimePickerComponent, DateTimePickerModel } from '@syncfusion/ej2-react-calendars';
-import DatePicker from "react-datepicker";
 
 type Props<
     TFieldValues extends FieldValues,

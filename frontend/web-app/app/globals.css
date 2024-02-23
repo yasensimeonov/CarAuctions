@@ -2,6 +2,7 @@
 @import "../node_modules/@syncfusion/ej2-buttons/styles/tailwind.css";
 @import "../node_modules/@syncfusion/ej2-lists/styles/tailwind.css";
 @import "../node_modules/@syncfusion/ej2-inputs/styles/tailwind.css";
+@import "../node_modules/@syncfusion/ej2-react-inputs/styles/tailwind.css";
 @import "../node_modules/@syncfusion/ej2-popups/styles/tailwind.css";
 @import "../node_modules/@syncfusion/ej2-react-calendars/styles/tailwind.css";
 
@@ -9,13 +10,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.e-input-group input.e-input,
-.e-input-group.e-control-wrapper input.e-input {
-    font-size: 20px;
-    height: 35px;
-    outline: 10px;
-    border: 10px;
-}
+/*.e-input-group input.e-input,*/
+/*.e-input-group.e-control-wrapper input.e-input {*/
+/*    font-size: 20px;*/
+/*    height: 35px;*/
+/*    outline: 10px;*/
+/*    border: 10px;*/
+/*}*/
 
 /*.react-datepicker-wrapper {*/
 /*    width: 100%;*/
