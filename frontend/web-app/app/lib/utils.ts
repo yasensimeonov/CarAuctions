@@ -1,4 +1,4 @@
-import {isDate, parse} from "date-fns";
+import { isDate, parse } from "date-fns";
 
 export function formatDateToLocal(
     dateStr: string,

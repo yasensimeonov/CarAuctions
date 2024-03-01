@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import React from "react";
 import Navbar from "@/app/nav/navbar";
+import { inter } from "@/fonts";
+import { cn } from "@/shadLib/shadUtils"
 
 export const metadata: Metadata = {
   title: 'CarAuctions',
@@ -11,7 +13,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body
+        className={cn(
+            'min-h-screen bg-background font-sans antialiased',
+            inter.variable
+        )}
+      >
         <Navbar />
         <main className="container mx-auto px-5 pt-10">
             {children}

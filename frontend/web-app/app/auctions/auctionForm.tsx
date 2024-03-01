@@ -6,8 +6,7 @@ import Input from "@/app/components/input";
 import {useEffect} from "react";
 import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup";
-import {addDays, format} from "date-fns";
-import DateTimeInput from "@/app/components/dateTimeInput";
+import ShadInput from "@/app/components/shadInput";
 
 const schema = yup.object({
     make: yup.string().max(5, 'Max Make length is 5').required('Make is required'),
@@ -21,8 +20,8 @@ const schema = yup.object({
     imageUrl: yup.string().url('Provide a valid image URL').required('Image URL is required'),
     reservePrice: yup.number().moreThan(-1, 'Reserve Price cannot be negative').integer().nullable()
         .transform((value) => Number.isNaN(value) ? null : value).required('Reserve Price is required'),
-    auctionEnd: yup.date().min(addDays(new Date(), 1), 'Auction End Date cannot be sooner than tomorrow').required('Auction End Date is required'),
-    // auctionEnd: yup.string().required('Auction End Date is required')
+    // auctionEnd: yup.string().required('Auction End Date is required'),
+    // auctionEnd: yup.date().min(addDays(new Date(), 1), 'Auction End Date cannot be sooner than tomorrow').required('Auction End Date is required')
 })
 
 export default function AuctionForm() {
@@ -36,9 +35,9 @@ export default function AuctionForm() {
         defaultValues: {
             make: '',
             model: '', color: '', year: 1995, mileage: 10000, imageUrl: '', reservePrice: 0,
-            // auctionEnd: format(addDays(new Date(), 1), 'yyyy-MM-dd')
-            auctionEnd: addDays(new Date(), 1)
             // auctionEnd: undefined
+            // auctionEnd: format(addDays(new Date(), 1), 'yyyy-MM-dd')
+            // auctionEnd: addDays(new Date(), 1)
         },
         mode: 'onTouched'
     });
@@ -54,24 +53,28 @@ export default function AuctionForm() {
 
     return (
         <form className='flex flex-col mt-3' onSubmit={handleSubmit(onSubmit)}>
-            <Input
+            {/*<Input*/}
+            {/*    label='Make' name='make' control={control}*/}
+            {/*    // rules={{required: 'Make is required'}}*/}
+            {/*/>*/}
+            <ShadInput
                 label='Make' name='make' control={control}
                 // rules={{required: 'Make is required'}}
             />
 
-            <Input label='Model' name='model' control={control} />
+            <ShadInput label='Model' name='model' control={control} />
 
-            <Input label='Color' name='color' control={control} />
+            <ShadInput label='Color' name='color' control={control} />
 
             <div className='grid grid-cols-2 gap-3'>
-                <Input label='Year' showLabel name='year' control={control} type='number' />
-                <Input label='Mileage' showLabel name='mileage' control={control} type='number' />
+                <ShadInput label='Year' showLabel name='year' control={control} type='number' />
+                <ShadInput label='Mileage' showLabel name='mileage' control={control} type='number' />
             </div>
 
-            <Input label='Image URL' name='imageUrl' control={control} />
+            <ShadInput label='Image URL' name='imageUrl' control={control} />
 
             <div className='grid grid-cols-2 gap-3'>
-                <Input label='Reserve Price (enter 0 if no reserve)' showLabel name='reservePrice' control={control} type='number' />
+                <ShadInput label='Reserve Price (enter 0 if no reserve)' showLabel name='reservePrice' control={control} type='number' />
 
                 {/*<Input label='Auction end date/time' name='auctionEnd' control={control} type='date' />*/}
                 {/*<DateInput*/}
@@ -84,16 +87,16 @@ export default function AuctionForm() {
                 {/*    showTimeSelect*/}
                 {/*/>*/}
 
-                <DateTimeInput
-                    label='Auction end date/time'
-                    placeholder='Select a date and time'
-                    showLabel
-                    name='auctionEnd'
-                    control={control}
-                    // type='date'
-                    // cssClass='e-calendar-yasen'
-                    cssClass='e-input-group'
-                />
+                {/*<DateTimeInput*/}
+                {/*    label='Auction end date/time'*/}
+                {/*    placeholder='Select a date and time'*/}
+                {/*    showLabel*/}
+                {/*    name='auctionEnd'*/}
+                {/*    control={control}*/}
+                {/*    // type='date'*/}
+                {/*    // cssClass='e-calendar-yasen'*/}
+                {/*    cssClass='e-input-group'*/}
+                {/*/>*/}
             </div>
 
             <div className='mt-3 flex justify-between'>
